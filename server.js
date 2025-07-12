@@ -27,7 +27,7 @@ app.get('/not-found', (_, res) => {
 });
 
 // Rota para processar o cadastro de lanche
-app.post('/', (req, res) => {
+app.post('/sugestao', (req, res) => {
     const { nome, ingredientes } = req.body;
     res.redirect(`/sugestao?nome=${nome}&ingredientes=${ingredientes}`);
 });
