@@ -26,12 +26,6 @@ app.get('/not-found', (_, res) => {
     res.sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-// Rota para processar o cadastro de lanche
-app.post('/sugestao', (req, res) => {
-    const { nome, ingredientes } = req.body;
-    res.redirect(`/sugestao?nome=${nome}&ingredientes=${ingredientes}`);
-});
-
 // Rota para exibir agradecimento pela sugestão
 app.get('/sugestao', (req, res) => {
     const { nome, ingredientes } = req.query;
