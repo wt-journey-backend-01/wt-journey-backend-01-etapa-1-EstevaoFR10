@@ -1,0 +1,97 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f8fafc;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+header {
+    background: #22223b;
+    color: #fff;
+    padding: 1.5em 0 1em 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+header h1 {
+    margin: 0 0 0.3em 0;
+    font-size: 2.2em;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #f2e9e4;
+    text-decoration: none;
+    margin: 0 0.7em;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+nav a:hover {
+    color: #c9ada7;
+}
+
+main {
+    max-width: 420px;
+    margin: 2.5em auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(34,34,59,0.08);
+    padding: 2.5em 2em 2em 2em;
+}
+
+section img {
+    display: block;
+    margin: 0 auto 1.2em auto;
+    max-width: 160px;
+}
+
+h2 {
+    text-align: center;
+    color: #4a4e69;
+    margin-bottom: 1.2em;
+}
+
+form div {
+    margin-bottom: 1.2em;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4em;
+    font-weight: 500;
+    color: #22223b;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 0.7em;
+    border: 1px solid #c9ada7;
+    border-radius: 6px;
+    font-size: 1em;
+    background: #f8fafc;
+    transition: border 0.2s;
+    box-sizing: border-box;
+}
+input[type="text"]:focus, textarea:focus {
+    border: 1.5px solid #4a4e69;
+    outline: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.7em;
+    background: #9a8c98;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5em;
+    box-sizing: border-box;
+}
+button[type="submit"]:hover {
+    background: #4a4e69;
+}

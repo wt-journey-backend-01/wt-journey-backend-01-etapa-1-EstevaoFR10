@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial - Lanches</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Lanchonete</h1>
+        <nav>
+            <a href="/contato">Contato</a> |
+            <a href="/api/lanches">API de Lanches</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <img src="/images/logo.png" alt="Logo DevBurger" style="max-width: 180px; display: block; margin: 0 auto 1em auto;">
+            <h2>Cadastre um novo lanche</h2>
+            <form action="/" method="POST">
+                <div>
+                    <label for="nome">Nome do Lanche:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div>
+                    <label for="ingredientes">Ingredientes:</label>
+                    <textarea id="ingredientes" name="ingredientes" rows="4" required></textarea>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
