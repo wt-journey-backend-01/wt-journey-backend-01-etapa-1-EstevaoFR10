@@ -7,41 +7,38 @@ const PORT = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
-let ultimoContato = null;
-let ultimaSugestao = null;
-
 // Rota principal
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
 // Rota para exibir o formulário de contato
-app.get('/contato', (req, res) => {
+app.get('/contato', (_, res) => {
     res.sendFile(path.join(__dirname, 'views', 'contato.html'));
 });
 
 // Rota para API de lanches
-app.get('/api/lanches', (req, res) => {
+app.get('/api/lanches', (_, res) => {
     res.sendFile(path.join(__dirname, 'public', 'data', 'lanches.json'));
 });
 
-app.get('/not-found', (req, res) => {
+app.get('/not-found', (_, res) => {
     res.sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
 // Rota para processar o cadastro de lanche
 app.post('/', (req, res) => {
-    ultimaSugestao = req.body;
-    res.redirect('/sugestao');
+    const { nome, ingredientes } = req.body;
+    res.redirect(`/sugestao?nome=${nome}&ingredientes=${ingredientes}`);
 });
 
 // Rota para exibir agradecimento pela sugestão
 app.get('/sugestao', (req, res) => {
-    if (!ultimaSugestao) {
+    const { nome, ingredientes } = req.query;
+    
+    if (!nome || !ingredientes) {
         return res.redirect('/not-found');
     }
-
-    const { nome, ingredientes } = ultimaSugestao;
     
     const html = `
     <!DOCTYPE html>
@@ -65,16 +62,7 @@ app.get('/sugestao', (req, res) => {
 });
 
 app.post('/contato', (req, res) => {
-    ultimoContato = req.body;
-    res.redirect('/contato-recebido');
-});
-
-app.get('/contato-recebido', (req, res) => {
-    if (!ultimoContato) {
-        return res.redirect('/not-found');
-    }
-
-    const { nome, email, assunto, mensagem } = ultimoContato;
+    const { nome, email, assunto, mensagem } = req.body;
     
     const html = `
     <!DOCTYPE html>
